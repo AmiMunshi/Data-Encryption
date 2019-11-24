@@ -1,0 +1,59 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Nov 24 12:01:10 2019
+
+@author: maulik
+"""
+
+import string
+all_letters= string.ascii_letters
+print (all_letters)
+""" 
+create a dictionary to store the substitution for the given alphabet 
+in the plain text based on the key
+"""
+
+dict1={}
+key=input("enter the key: ")
+key=int(key)
+for i in range(len(all_letters)):
+    dict1[all_letters[i]]= all_letters[(i-key)%len(all_letters)]
+print(dict1)
+
+plain_txt= input("Enter the string to be encrypted: ")
+cipher_txt=[]
+
+## loop to generate cipher text
+
+for char in plain_txt:
+    if char in all_letters:
+        temp= dict1[char]
+        cipher_txt.append(temp)
+    else:
+        temp=char
+        cipher_txt.append(temp)
+cipher_txt= "".join(cipher_txt)
+print(cipher_txt)
+
+""" 
+create a dictionary to store the substitution for the given alphabet 
+in the cihpher text based on the key
+"""
+
+dict2={}        
+for i in range(len(all_letters)):
+    dict2[all_letters[i]]= all_letters[(i+key)%(len(all_letters))]
+    
+ ## loop to recover plain text
+decrypt_txt=[]
+for char in cipher_txt:
+    if char in all_letters:
+        temp= dict2[char]
+        decrypt_txt.append(temp)
+    else:
+        temp=char
+        decrypt_txt.append(temp)
+decrypt_txt= "".join(decrypt_txt)
+print(decrypt_txt)   
+    
