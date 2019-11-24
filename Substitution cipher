@@ -34,7 +34,7 @@ for char in plain_txt:
         temp=char
         cipher_txt.append(temp)
 cipher_txt= "".join(cipher_txt)
-print(cipher_txt)
+print("Cipher text is",cipher_txt)
 
 """ 
 create a dictionary to store the substitution for the given alphabet 
@@ -55,5 +55,5 @@ for char in cipher_txt:
         temp=char
         decrypt_txt.append(temp)
 decrypt_txt= "".join(decrypt_txt)
-print(decrypt_txt)   
+print("Recovered plain text is: "decrypt_txt)   
     
