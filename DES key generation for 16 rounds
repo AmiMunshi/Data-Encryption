@@ -1,0 +1,44 @@
+import numpy as np
+import random
+#Generate Key of size 64 elements. Here, insead of bits, integers are taken to understand the permutaion and shifting operations taking place.
+key= np.arange(1,65,1)
+print(key)
+
+# Initialize permutaion choice 1 matrix
+Perm1= [57,49,41,33, 25,17,9,1,58,50,42,34,26,18,10,2,59,51,43,35,27, 19,11,3,60,52,44,36,63,55,47,39,31,23,15,7,62,54,46,38,30,22,14,6,61,53,45,37,29,21,13,25,28,20,12,4]
+
+# Performs permutaion and parity drop operations
+key1=[]
+for i in range(0,56):
+  x= (Perm1[i])
+  x=int(x)
+  temp= key[x]
+  key1.append(temp)
+print(key1)
+
+#Performs left rotation of eachn round key according to its round number
+keyrot= np.zeros([16,56],dtype=int)
+for i in range(0,16):
+  if i==0 or i==1 or i==8:
+    temp= np.roll(key1,-1)
+    keyrot[i,:]= temp
+    key1=temp
+  else:
+    temp=np.roll(key1,-2)
+    keyrot[i,:]=temp
+    key1=temp
+#print(keyrot)
+#Initialize permutaion choice 1 matrix
+Perm2= [14,17,11,24,1,5,3,28,15,6,21,10,23,19,12,4,26,8,16,7, 27,20,13,2,41,52,31,37,47,55,30,40,51,45,33,48,44,49,39,56,34,53,46,42,50,36,29,32]
+
+#Performs permutation and compression
+keyround=np.zeros([16,48], dtype=int)
+for i in range(0,16):
+  tempkey= keyrot[i,:]
+  key2=[]
+  for k in range(0,48):
+    y=Perm2[k]
+    temp=tempkey[k]
+    key2.append(temp)
+  keyround[i,:]=key2
+  print("Key for round",i,"= ", tempkey)
