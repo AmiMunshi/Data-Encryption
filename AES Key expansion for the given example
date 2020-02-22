@@ -1,0 +1,25 @@
+
+#AES Key Expansion
+# t is given
+t= [0XAD20177D, 0X470678DB, 0X31da48d0, 0x47ab5b7d, 0x6c762d20, 0x52c4f80d, 0xe4133523, 0x8ce29268, 0x0a5e4f61, 0x37c6cd99]
+
+#Initial 4 byte key given
+j=0
+w1=[0x2475A2B3, 0x34755688, 0x31E21200, 0x13AA5487]
+for i in range(4,44):
+  
+  if i%4==0:
+    temp1= (t[j]^w1[i-4])
+    w1.append(temp1)
+    j=j+1
+  else:  
+    temp= (w1[i-1]^w1[i-4])
+    w1.append(temp)
+print(w1)
+
+#Converting the Key in Hex numbers
+word=[]
+for i in range(0,44):
+  temp= hex(w1[i])
+  word.append(temp)
+print(word)
