@@ -1,0 +1,14 @@
+## Function to implement bit exor
+def exor(a,b):
+  temp = "" 
+  for i in range(n): 
+      if (a[i] == b[i]): 
+          temp += "0"
+      else: 
+          temp += "1"
+  return temp 
+  
+  a= input("Enter the binary first string: ")
+  b=input("Enter the second binary string with length equal to the first string: ")
+  c= exor(a,b)
+  print(c)
