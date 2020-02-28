@@ -1,0 +1,15 @@
+# Random bits key generation
+def rand_key(p):
+  import random
+  key1=""
+  p=int(p)
+  for i in range(p):
+    temp= random.randint(0,1)
+    temp=str(temp)
+    key1=key1+temp
+  return(key1)
+
+p=int(input("Enter the length of random binary string to be generated: "))
+print("Length of the desired strung is: ", p)
+str1= rand_key(p)
+print("Desired length random binary string is: ", str1)
