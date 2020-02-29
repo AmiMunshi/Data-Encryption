@@ -19,24 +19,14 @@ def exteuclid(a,b):
     t2=t
   return (t1)
   
-#Euclidean Algorithm
-def euclid(m,n):
-  if n==0:
-    return m
-  else:
-    r= m%n
-    return euclid(n,r)
-    
-#To find multiplicative inverse of b in Za
 a= int(input("Enter the first number"))
 b= int(input("Enter the second number"))
-gcd= euclid(a,b)
-print("gcd of (a,b) is ",gcd)
-if gcd==1:
+r1,t1= exteuclid(a,b)
+
+print("gcd of (a,b) is ",r1)
+if r1==1:
   print("Multiplicaive inverse of ", b, "exists in Z", a)
-  temp= exteuclid(a,b)
-  MI= temp%a
+  MI= t1%a
   print("Multiplicaive inverse of ", b, "is", MI)
 else:
   print("Multiplicaive inverse of ", b, "does not exists in Z",a)
- 
