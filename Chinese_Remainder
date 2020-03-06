@@ -19,21 +19,25 @@ def exteuclid(a,b):
   return (r1,t1)
 
 #Chinese Remainder theorem
-m1,m2,m3= input("Enter m1,m2,m3")
+m1,m2,m3= input("Enter m1,m2,m3").split()
 m1= int(m1)
 m2=int(m2)
 m3=int(m3)
-a1,a2,a3= input("Enter a1,a2,a3")
+a1,a2,a3= input("Enter a1,a2,a3").split()
 a1= int(a1)
 a2=int(a2)
 a3=int(a3)
 M= m1*m2*m3
-M1= M/a1
-M2=M/a2
-M3=M/a3
-M1gcd, M1inv= exteuclid(M,M1)
-M1gcd, M1inv= exteuclid(M,M1)
-M1gcd, M1inv= exteuclid(M,M1)
+M1= M/m1
+M2=M/m2
+M3=M/m3
+M1gcd, M1inv= exteuclid(m1,M1)
+print(M1inv)
+M2gcd, M2inv= exteuclid(m2,M2)
+print(M2inv)
+M3gcd, M3inv= exteuclid(m3,M3)
+print(M3inv)
 temp= a1*M1*M1inv + a2*M2*M2inv +a3*M3*M3inv
-x= M%temp
+print(temp)
+x= temp%M
 print("Solution to the given simultaneous equation is ",x)
