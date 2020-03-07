@@ -16,6 +16,9 @@ def exteuclid(a,b):
     t= t1-q*t2
     t1=t2
     t2=t
+  if(t1<0):
+    t1= t1%a
+  else: t1=1
   return (r1,t1)
 
 #Chinese Remainder theorem
