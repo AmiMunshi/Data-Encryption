@@ -60,7 +60,7 @@ ct= pow(PT,e)
 ct=ct%n
 
 dt= pow(ct,d)
-ct= dt%n
+dt= dt%n
 
-print("For plain text = ", no, ", Cipher text = ", ct, "Decrypted text = ", dt)
+print("For plain text = ", PT, ", Cipher text = ", ct, "Decrypted text = ", dt)
  
